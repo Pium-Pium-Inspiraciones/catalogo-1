@@ -1,0 +1,214 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font-sans);}
+.wrap{padding:1rem 0;}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+.controls input{flex:1;min-width:160px;font-size:13px;padding:7px 11px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-primary);}
+.controls select{font-size:13px;padding:7px 11px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-primary);}
+.section-lbl{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--color-text-tertiary);margin-bottom:6px;}
+.fam-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
+.note-row{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px;}
+.pill{font-size:11px;font-weight:500;padding:3px 10px;border-radius:999px;border:0.5px solid;cursor:pointer;transition:opacity .12s;user-select:none;}
+.pill.off{opacity:.28;}
+.count{font-size:12px;color:var(--color-text-secondary);margin-bottom:10px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:13px;display:flex;flex-direction:column;gap:6px;transition:border-color .13s;}
+.card:hover{border-color:var(--color-border-secondary);}
+.badges{display:flex;gap:4px;flex-wrap:wrap;}
+.badge{font-size:10px;font-weight:500;padding:2px 8px;border-radius:999px;}
+.cname{font-size:13px;font-weight:500;color:var(--color-text-primary);line-height:1.35;}
+.chouse{font-size:11px;color:var(--color-text-secondary);}
+.cnotes{display:flex;gap:3px;flex-wrap:wrap;margin-top:2px;}
+.ntag{font-size:10px;padding:1px 7px;border-radius:999px;}
+.empty{text-align:center;padding:2.5rem;font-size:13px;color:var(--color-text-tertiary);}
+</style>
+
+<div class="wrap">
+<h2 class="sr-only">Perfume catalog with scent family and note filters</h2>
+
+<div class="controls">
+  <input type="search" id="q" placeholder="Search name or house…" oninput="render()">
+  <select id="gdr" onchange="render()">
+    <option value="">All genders</option>
+    <option value="dama">Women (Damas)</option>
+    <option value="cab">Men (Caballero)</option>
+    <option value="unisex">Unisex</option>
+  </select>
+  <select id="srt" onchange="render()">
+    <option value="name">Sort: name</option>
+    <option value="house">Sort: house</option>
+    <option value="family">Sort: family</option>
+  </select>
+</div>
+
+<div class="section-lbl">Scent family</div>
+<div class="fam-row" id="fam-row"></div>
+
+<div class="section-lbl">Key notes</div>
+<div class="note-row" id="note-row"></div>
+
+<div class="count" id="cnt"></div>
+<div class="grid" id="grid"></div>
+</div>
+
+<script>
+const FAM={
+  floral:{label:"Floral",bg:"#FBEAF0",color:"#72243E",border:"#D4537E"},
+  fresh:{label:"Fresh",bg:"#E1F5EE",color:"#085041",border:"#1D9E75"},
+  woody:{label:"Woody",bg:"#FAEEDA",color:"#633806",border:"#BA7517"},
+  oriental:{label:"Oriental",bg:"#FAECE7",color:"#4A1B0C",border:"#D85A30"},
+  gourmand:{label:"Gourmand",bg:"#EEEDFE",color:"#26215C",border:"#7F77DD"},
+  chypre:{label:"Chypre",bg:"#EAF3DE",color:"#173404",border:"#639922"},
+  aquatic:{label:"Aquatic",bg:"#E6F1FB",color:"#042C53",border:"#378ADD"},
+  fougere:{label:"Fougère",bg:"#F1EFE8",color:"#2C2C2A",border:"#888780"},
+};
+
+const NOTE_GROUPS={
+  "Citrus":{bg:"#FAEEDA",color:"#633806",border:"#BA7517",notes:["bergamot","lemon","grapefruit","mandarin","orange","lime","citrus"]},
+  "Floral":{bg:"#FBEAF0",color:"#72243E",border:"#D4537E",notes:["rose","jasmine","peony","lily","tuberose","iris","violet","orchid","ylang ylang","orange blossom","geranium","magnolia","freesia","heliotrope","camellia"]},
+  "Fruity":{bg:"#FCEBEB",color:"#A32D2D",border:"#E24B4A",notes:["raspberry","cherry","peach","pear","apple","lychee","blackcurrant","plum","kiwi","mango","coconut","dragon fruit"]},
+  "Woody":{bg:"#F1EFE8",color:"#2C2C2A",border:"#888780",notes:["sandalwood","cedarwood","vetiver","patchouli","oud","guaiac wood","oakmoss","driftwood","incense","resin","tobacco"]},
+  "Musky":{bg:"#EEEDFE",color:"#3C3489",border:"#7F77DD",notes:["musk","white musk","ambroxan","ambergris","cashmere"]},
+  "Spicy":{bg:"#FAECE7",color:"#4A1B0C",border:"#D85A30",notes:["pepper","cinnamon","cardamom","ginger","saffron","pink pepper","black pepper","sage","rosemary"]},
+  "Sweet":{bg:"#F4C0D1",color:"#4B1528",border:"#D4537E",notes:["vanilla","praline","caramel","tonka bean","cocoa","honey","almond","coffee"]},
+  "Amber":{bg:"#FAC775",color:"#412402",border:"#BA7517",notes:["amber","labdanum","benzoin","leather","suede"]},
+  "Fresh/Green":{bg:"#E1F5EE",color:"#085041",border:"#1D9E75",notes:["mint","aquatic","sea notes","ozonic","lavender","basil","green notes","juniper","lotus"]},
+};
+
+const ALL_NOTE_GROUP=Object.fromEntries(Object.entries(NOTE_GROUPS).flatMap(([g,v])=>v.notes.map(n=>[n,g])));
+function ng(n){return NOTE_GROUPS[ALL_NOTE_GROUP[n]]||{bg:"#F1EFE8",color:"#444",border:"#aaa"};}
+
+const DATA=[
+  // ── CABALLERO (Men) ──────────────────────────────────────────────────────
+  {cat:"cab",name:"Lost Cherry",house:"Tom Ford",family:"oriental",notes:["cherry","almond","jasmine","rose","tonka bean","sandalwood","amber","musk"]},
+  {cat:"cab",name:"Tuscan Leather",house:"Tom Ford",family:"woody",notes:["raspberry","saffron","leather","jasmine","musk","amber","sandalwood","cedarwood"]},
+  {cat:"cab",name:"Tobacco Vanille",house:"Tom Ford",family:"oriental",notes:["tobacco","vanilla","cocoa","tonka bean","amber","musk"]},
+  {cat:"cab",name:"Santal 33",house:"Le Labo",family:"woody",notes:["sandalwood","cedarwood","leather","cardamom","iris","violet","musk","amber"]},
+  {cat:"cab",name:"Pacific Chill",house:"Louis Vuitton",family:"fresh",notes:["citrus","grapefruit","aquatic","musk","cedarwood","amber"]},
+  {cat:"cab",name:"Lavande 31",house:"Le Labo",family:"fougere",notes:["lavender","musk","amber","cedarwood","vetiver"]},
+  {cat:"cab",name:"212 Men",house:"Carolina Herrera",family:"fresh",notes:["bergamot","lemon","juniper","cedarwood","musk","sandalwood","amber"]},
+  {cat:"cab",name:"Carlo Corinto",house:"Carlo Corinto",family:"fougere",notes:["bergamot","lavender","oakmoss","musk","sandalwood","amber"]},
+  {cat:"cab",name:"Light Blue Italian Zest Pour Homme",house:"Dolce & Gabbana",family:"fresh",notes:["lemon","grapefruit","bergamot","musk","cedarwood","amber","rosemary"]},
+  {cat:"cab",name:"Bleu de Chanel",house:"Chanel",family:"woody",notes:["lemon","grapefruit","mint","pink pepper","ginger","sandalwood","patchouli","vetiver","incense","musk"]},
+  {cat:"cab",name:"Baccarat Rouge 540",house:"Maison Francis Kurkdjian",family:"oriental",notes:["saffron","jasmine","ambroxan","cedarwood","musk"]},
+  {cat:"unisex",name:"CK One",house:"Calvin Klein",family:"fresh",notes:["bergamot","lemon","jasmine","rose","musk","amber","sandalwood"]},
+  {cat:"cab",name:"Khamra",house:"Lattafa",family:"oriental",notes:["saffron","oud","amber","vanilla","musk","rose","sandalwood"]},
+  {cat:"cab",name:"Ombre Nomade",house:"Louis Vuitton",family:"woody",notes:["oud","rose","incense","amber","musk","sandalwood","resin"]},
+  {cat:"cab",name:"Sauvage EDP",house:"Dior",family:"woody",notes:["bergamot","pepper","lavender","vanilla","ambroxan","vetiver","musk","sandalwood"]},
+  {cat:"cab",name:"Le Male Elixir",house:"Jean Paul Gaultier",family:"oriental",notes:["cardamom","lavender","vanilla","amber","musk","cedarwood","tonka bean"]},
+  {cat:"cab",name:"L'Immensite",house:"Louis Vuitton",family:"woody",notes:["bergamot","pink pepper","vetiver","musk","cedarwood","amber","sandalwood"]},
+  // ── DAMAS (Women) ────────────────────────────────────────────────────────
+  {cat:"dama",name:"212 Sexy",house:"Carolina Herrera",family:"oriental",notes:["mandarin","jasmine","rose","musk","amber","sandalwood","vanilla"]},
+  {cat:"dama",name:"Ralph",house:"Ralph Lauren",family:"floral",notes:["bergamot","violet","rose","freesia","musk","sandalwood"]},
+  {cat:"dama",name:"Ralph Fresh",house:"Ralph Lauren",family:"fresh",notes:["grapefruit","lemon","orange","rose","lily","musk","cedarwood"]},
+  {cat:"dama",name:"Paradoxe Virtual Flower",house:"Prada",family:"floral",notes:["bergamot","rose","jasmine","sandalwood","musk","amber","iris"]},
+  {cat:"dama",name:"Ombre Rose",house:"Jean Charles Brosseau",family:"floral",notes:["rose","jasmine","geranium","amber","sandalwood","musk","vanilla"]},
+  {cat:"dama",name:"Eternity",house:"Calvin Klein",family:"floral",notes:["bergamot","freesia","violet","rose","amber","sandalwood","musk"]},
+  {cat:"dama",name:"Dolce & Gabbana Light Blue",house:"Dolce & Gabbana",family:"fresh",notes:["lemon","apple","cedarwood","musk","amber","jasmine","rose"]},
+  {cat:"dama",name:"Dylan Blue",house:"Versace",family:"floral",notes:["blackcurrant","rose","violet","amber","musk","patchouli"]},
+  {cat:"dama",name:"Acqua di Gio",house:"Giorgio Armani",family:"floral",notes:["bergamot","jasmine","rose","cedar","musk","amber"]},
+  {cat:"dama",name:"Boss Orange",house:"Hugo Boss",family:"floral",notes:["grapefruit","peach","rose","jasmine","musk","sandalwood","amber"]},
+  {cat:"dama",name:"La Vie est Belle",house:"Lancôme",family:"gourmand",notes:["blackcurrant","iris","jasmine","orange blossom","praline","patchouli","vanilla","musk"]},
+  {cat:"dama",name:"Black Opium Floral Shock EDP",house:"YSL",family:"gourmand",notes:["pink pepper","orange blossom","coffee","vanilla","musk","cedarwood","patchouli"]},
+  {cat:"dama",name:"Cloud",house:"Ariana Grande",family:"gourmand",notes:["lavender","pear","coconut","musk","praline","vanilla","cashmere"]},
+  {cat:"dama",name:"Burberry Goddess",house:"Burberry",family:"oriental",notes:["vanilla","lavender","amber","musk","sandalwood"]},
+  {cat:"dama",name:"Halloween",house:"Jesus Del Pozo",family:"oriental",notes:["cardamom","orange blossom","jasmine","sandalwood","musk","amber","vanilla"]},
+  {cat:"dama",name:"Meow",house:"Katy Perry",family:"floral",notes:["plum","peach","iris","jasmine","musk","sandalwood","vanilla","amber"]},
+  {cat:"dama",name:"Spell on You",house:"Louis Vuitton",family:"floral",notes:["rose","jasmine","tuberose","iris","musk","sandalwood","amber"]},
+  {cat:"dama",name:"Chanel No. 5",house:"Chanel",family:"floral",notes:["ylang ylang","rose","jasmine","iris","sandalwood","vetiver","musk","amber"]},
+];
+
+let activeFam="all", activeNotes=new Set(), products=DATA;
+
+function allNotes(){
+  const s=new Set();
+  products.forEach(p=>p.notes.forEach(n=>s.add(n)));
+  return [...s].sort();
+}
+
+function renderFamilyPills(){
+  const c=document.getElementById("fam-row");
+  c.innerHTML="";
+  const allBtn=document.createElement("button");
+  allBtn.className="pill"+(activeFam!=="all"?" off":"");
+  allBtn.style.cssText="background:#F1EFE8;color:#2C2C2A;border-color:#888780;";
+  allBtn.textContent="All";
+  allBtn.onclick=()=>{activeFam="all";render();};
+  c.appendChild(allBtn);
+  Object.entries(FAM).forEach(([k,v])=>{
+    const b=document.createElement("button");
+    b.className="pill"+(activeFam!=="all"&&activeFam!==k?" off":"");
+    b.style.cssText=`background:${v.bg};color:${v.color};border-color:${v.border};`;
+    b.textContent=v.label;
+    b.onclick=()=>{activeFam=activeFam===k?"all":k;render();};
+    c.appendChild(b);
+  });
+}
+
+function renderNotePills(){
+  const c=document.getElementById("note-row");
+  c.innerHTML="";
+  Object.entries(NOTE_GROUPS).forEach(([group,gv])=>{
+    gv.notes.forEach(note=>{
+      if(!allNotes().includes(note))return;
+      const b=document.createElement("button");
+      const on=activeNotes.has(note);
+      b.className="pill"+(!on&&activeNotes.size>0?" off":"");
+      b.style.cssText=`background:${gv.bg};color:${gv.color};border-color:${gv.border};`;
+      b.textContent=note;
+      b.onclick=()=>{
+        if(activeNotes.has(note))activeNotes.delete(note);
+        else activeNotes.add(note);
+        render();
+      };
+      c.appendChild(b);
+    });
+  });
+}
+
+function render(){
+  renderFamilyPills();
+  renderNotePills();
+  const q=(document.getElementById("q").value||"").toLowerCase();
+  const gdr=document.getElementById("gdr").value;
+  const srt=document.getElementById("srt").value;
+  let items=DATA.filter(d=>{
+    if(gdr&&d.cat!==gdr)return false;
+    if(activeFam!=="all"&&d.family!==activeFam)return false;
+    if(activeNotes.size>0&&![...activeNotes].every(n=>d.notes.includes(n)))return false;
+    if(q&&!d.name.toLowerCase().includes(q)&&!d.house.toLowerCase().includes(q)&&!d.notes.some(n=>n.includes(q)))return false;
+    return true;
+  });
+  items.sort((a,b)=>{
+    if(srt==="house")return a.house.localeCompare(b.house)||a.name.localeCompare(b.name);
+    if(srt==="family")return a.family.localeCompare(b.family)||a.name.localeCompare(b.name);
+    return a.name.localeCompare(b.name);
+  });
+  document.getElementById("cnt").textContent=`${items.length} fragrance${items.length!==1?"s":""}`;
+  const grid=document.getElementById("grid");
+  if(!items.length){grid.innerHTML='<div class="empty">No fragrances match your filters.</div>';return;}
+  grid.innerHTML=items.map(d=>{
+    const fm=FAM[d.family]||{label:d.family,bg:"#eee",color:"#333"};
+    const gc=d.cat==="dama"?"badge-dama":d.cat==="cab"?"badge-cab":"badge-unisex";
+    const gl=d.cat==="dama"?"Women":d.cat==="cab"?"Men":"Unisex";
+    const noteTags=d.notes.slice(0,5).map(n=>{const g=ng(n);return`<span class="ntag" style="background:${g.bg};color:${g.color};">${n}</span>`;}).join("");
+    return`<div class="card">
+      <div class="badges">
+        <span class="badge ${gc}">${gl}</span>
+        <span class="badge" style="background:${fm.bg};color:${fm.color};">${fm.label}</span>
+      </div>
+      <div class="cname">${d.name}</div>
+      <div class="chouse">${d.house}</div>
+      <div class="cnotes">${noteTags}</div>
+    </div>`;
+  }).join("");
+}
+
+// inject badge styles
+const s=document.createElement("style");
+s.textContent=".badge-dama{background:#FBEAF0;color:#72243E;}.badge-cab{background:#E6F1FB;color:#0C447C;}.badge-unisex{background:#E1F5EE;color:#085041;}";
+document.head.appendChild(s);
+
+render();
+</script>
