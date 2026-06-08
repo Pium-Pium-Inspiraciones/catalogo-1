@@ -634,6 +634,48 @@ html, body {
   z-index: 1;
 }
 
+
+/* ── STOCK PILL (catalog) ── */
+.stock-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-top: 4px;
+}
+.stock-pill.sp-ok   { background: #E8F5EF; color: #2a7a4a; }
+.stock-pill.sp-low  { background: #FAEEDA; color: #C4732A; }
+.stock-pill.sp-zero { background: #FFF0EE; color: #c23b2a; }
+.stock-pill.sp-none { display: none; }
+
+.modal-stock-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin-top: 2px;
+}
+.modal-stock-row.sp-ok   { background: #E8F5EF; }
+.modal-stock-row.sp-low  { background: #FAEEDA; }
+.modal-stock-row.sp-zero { background: #FFF0EE; }
+.msr-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1;
+}
+.msr-num.sp-ok   { color: #2a7a4a; }
+.msr-num.sp-low  { color: #C4732A; }
+.msr-num.sp-zero { color: #c23b2a; }
+.msr-labels { display: flex; flex-direction: column; gap: 1px; }
+.msr-label  { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink3); }
+.msr-sold   { font-size: 11px; color: var(--ink3); }
+
 /* scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -710,6 +752,87 @@ html, body {
 
 <script src="fragrance_db.js"></script>
 <script>
+
+// ── SHARED STOCK (IndexedDB — same DB as piumpiummanager) ──
+const DB_NAME = 'ParfumsDB', DB_VER = 3;
+let _db = null;
+
+function _openDB() {
+  if (_db) return Promise.resolve(_db);
+  return new Promise((res, rej) => {
+    const req = indexedDB.open(DB_NAME, DB_VER);
+    req.onupgradeneeded = e => {
+      const d = e.target.result;
+      if (!d.objectStoreNames.contains('products')) {
+        const s = d.createObjectStore('products', {keyPath:'code'});
+        s.createIndex('cat','cat',{unique:false});
+        s.createIndex('family','family',{unique:false});
+      }
+      if (!d.objectStoreNames.contains('inventory')) {
+        const s = d.createObjectStore('inventory', {keyPath:'code'});
+        s.createIndex('stock','stock',{unique:false});
+        s.createIndex('sold','sold',{unique:false});
+      }
+      if (!d.objectStoreNames.contains('history')) {
+        const s = d.createObjectStore('history', {keyPath:'id',autoIncrement:true});
+      }
+      if (!d.objectStoreNames.contains('orders')) {
+        const s = d.createObjectStore('orders', {keyPath:'id',autoIncrement:true});
+        s.createIndex('status','status',{unique:false});
+        s.createIndex('createdAt','createdAt',{unique:false});
+      }
+    };
+    req.onsuccess = e => { _db = e.target.result; res(_db); };
+    req.onerror  = () => rej(req.error);
+  });
+}
+
+function _idbGet(store, key) {
+  return _openDB().then(db => new Promise((r,j) => {
+    const q = db.transaction(store).objectStore(store).get(key);
+    q.onsuccess = () => r(q.result);
+    q.onerror   = () => j(q.error);
+  }));
+}
+
+function _idbGetAll(store) {
+  return _openDB().then(db => new Promise((r,j) => {
+    const q = db.transaction(store).objectStore(store).getAll();
+    q.onsuccess = () => r(q.result);
+    q.onerror   = () => j(q.error);
+  }));
+}
+
+// invMap cache: code → {stock, sold}
+let _invMap = {};
+
+async function _loadInventory() {
+  try {
+    const rows = await _idbGetAll('inventory');
+    _invMap = Object.fromEntries(rows.map(r => [r.code, r]));
+  } catch(e) {
+    _invMap = {};
+  }
+}
+
+function _stockOf(code) {
+  const r = _invMap[code];
+  return r ? (r.stock || 0) : null;   // null = manager never opened (no data yet)
+}
+
+function _soldOf(code) {
+  const r = _invMap[code];
+  return r ? (r.sold || 0) : 0;
+}
+
+// Re-load and re-render when tab becomes visible again (manager may have run)
+document.addEventListener('visibilitychange', async () => {
+  if (document.visibilityState === 'visible') {
+    await _loadInventory();
+    render();
+  }
+});
+
 // ── NOTE COLOR CLASSES ──
 const NOTE_CLASSES = {
   rose:'ntag-rose', jasmine:'ntag-jasmine', peony:'ntag-peony', lily:'ntag-lily',
@@ -771,6 +894,9 @@ function renderCard(p) {
   const catLabel = p.cat === 'dama' ? 'Dama' : p.cat === 'cab' ? 'Caballero' : 'Unisex';
   const catBadge = `badge-${p.cat}`;
   const notes = (p.notes || []).slice(0, 5).map(n => noteTag(n)).join('');
+  const stk = _stockOf(p.code);
+  const spClass = stk === null ? 'sp-none' : stk === 0 ? 'sp-zero' : stk <= 5 ? 'sp-low' : 'sp-ok';
+  const spDot   = stk === null ? '' : stk === 0 ? '● Sin stock' : stk <= 5 ? `● ${stk} disponibles` : `● ${stk} en stock`;
   return `
   <div class="prod-card cat-${p.cat}" onclick="openModal('${p.code}')">
     <div class="prod-card-body">
@@ -785,6 +911,7 @@ function renderCard(p) {
         <span class="badge" style="background:${fm.bg};color:${fm.c};">${FAMILY_LABELS[p.family]||p.family}</span>
       </div>
       <div class="cnotes">${notes}</div>
+      <span class="stock-pill ${spClass}">${spDot}</span>
     </div>
   </div>`;
 }
@@ -802,7 +929,8 @@ function getFiltered() {
   });
 }
 
-function render() {
+async function render() {
+  await _loadInventory();
   const items = getFiltered();
   const grid = document.getElementById('catalog-grid');
   document.getElementById('count-badge').textContent = `${items.length} fragancia${items.length !== 1 ? 's' : ''}`;
@@ -843,9 +971,10 @@ document.getElementById('search-input').addEventListener('input', e => {
 });
 
 // ── MODAL ──
-function openModal(code) {
+async function openModal(code) {
   const p = FRAGRANCE_DB.find(x => x.code === code);
   if (!p) return;
+  await _loadInventory();
   const fm = FAMILY_COLORS[p.family] || {bg:'#eee',c:'#333'};
   const strip = CAT_STRIP[p.cat] || '#C4732A';
   const catLabel = p.cat === 'dama' ? 'Dama ♀' : p.cat === 'cab' ? 'Caballero ♂' : 'Unisex ⚬';
@@ -871,6 +1000,22 @@ function openModal(code) {
         </div>
        </div>` : '';
 
+  const mStk  = _stockOf(p.code);
+  const mSold = _soldOf(p.code);
+  const mSpClass = mStk === null ? '' : mStk === 0 ? 'sp-zero' : mStk <= 5 ? 'sp-low' : 'sp-ok';
+  const mNumClass = mStk === null ? '' : mStk === 0 ? 'sp-zero' : mStk <= 5 ? 'sp-low' : 'sp-ok';
+  const stockSection = mStk !== null ? `
+    <div class="modal-section">
+      <div class="modal-section-title">disponibilidad</div>
+      <div class="modal-stock-row ${mSpClass}">
+        <div class="msr-num ${mNumClass}">${mStk}</div>
+        <div class="msr-labels">
+          <span class="msr-label">${mStk === 0 ? 'Sin stock' : mStk <= 5 ? 'Stock bajo' : 'En stock'}</span>
+          <span class="msr-sold">${mSold} vendido${mSold !== 1 ? 's' : ''}</span>
+        </div>
+      </div>
+    </div>` : '';
+
   document.getElementById('modal-content').innerHTML = `
     <div class="modal-header">
       <div class="modal-code">${p.namePiumPium}</div>
@@ -883,6 +1028,7 @@ function openModal(code) {
         <span class="modal-badge" style="background:var(--cream2);color:var(--ink3);font-size:10px;">${p.code}</span>
       </div>
     </div>
+    ${stockSection}
     <div class="modal-section">
       <div class="modal-section-title">notas olfativas</div>
       <div class="modal-notes">${allNotes}</div>
@@ -892,6 +1038,22 @@ function openModal(code) {
 
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
+}
+
+
+async function resetAllStock(){
+  if(!confirm('Reset ALL stock to 0? Sold counts are kept. This cannot be undone.'))return;
+  await _openDB();
+  const all = await _idbGetAll('inventory');
+  const db  = await _openDB();
+  await Promise.all(all.map(inv => new Promise((r,j)=>{
+    inv.stock = 0;
+    const q = db.transaction('inventory','readwrite').objectStore('inventory').put(inv);
+    q.onsuccess=()=>r(); q.onerror=()=>j(q.error);
+  })));
+  await _loadInventory();
+  render();
+  alert(`Done — ${all.length} items reset to 0.`);
 }
 
 function closeModal() {
@@ -907,7 +1069,7 @@ function handleModalBg(e) {
 document.querySelector('#filters-cat .fpill[data-cat="all"]').classList.add('active-all');
 document.querySelector('#filters-family .fpill[data-fam="all"]').classList.add('active-all');
 
-render();
+_loadInventory().then(() => render());
 </script>
 </body>
 </html>
