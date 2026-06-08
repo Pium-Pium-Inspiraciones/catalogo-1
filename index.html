@@ -917,7 +917,7 @@ function renderCard(p) {
 }
 
 function getFiltered() {
-  return FRAGRANCE_DB.filter(p => {
+  const filtered = FRAGRANCE_DB.filter(p => {
     if (activeCat !== 'all' && p.cat !== activeCat) return false;
     if (activeFam !== 'all' && p.family !== activeFam) return false;
     if (searchQ) {
@@ -926,6 +926,14 @@ function getFiltered() {
       if (!hay.includes(q)) return false;
     }
     return true;
+  });
+  // Sort by stock descending: items with stock first, then low stock, then zero, then no data
+  return filtered.sort((a, b) => {
+    const sa = _stockOf(a.code);
+    const sb = _stockOf(b.code);
+    const va = sa === null ? -1 : sa;
+    const vb = sb === null ? -1 : sb;
+    return vb - va;
   });
 }
 
