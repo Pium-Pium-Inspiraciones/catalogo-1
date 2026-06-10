@@ -645,12 +645,26 @@ html, body {
   font-weight: 500;
   padding: 2px 8px;
   border-radius: 999px;
-  margin-top: 4px;
 }
 .stock-pill.sp-ok   { background: #E8F5EF; color: #2a7a4a; }
 .stock-pill.sp-low  { background: #FAEEDA; color: #C4732A; }
 .stock-pill.sp-zero { background: #FFF0EE; color: #c23b2a; }
 .stock-pill.sp-none { display: none; }
+
+.stock-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.stock-sold {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--ink3);
+  font-weight: 400;
+}
 
 .modal-stock-row {
   display: flex;
@@ -894,9 +908,14 @@ function renderCard(p) {
   const catLabel = p.cat === 'dama' ? 'Dama' : p.cat === 'cab' ? 'Caballero' : 'Unisex';
   const catBadge = `badge-${p.cat}`;
   const notes = (p.notes || []).slice(0, 5).map(n => noteTag(n)).join('');
-  const stk = _stockOf(p.code);
+  const stk  = _stockOf(p.code);
+  const sold = _soldOf(p.code);
   const spClass = stk === null ? 'sp-none' : stk === 0 ? 'sp-zero' : stk <= 5 ? 'sp-low' : 'sp-ok';
-  const spDot   = stk === null ? '' : stk === 0 ? '● Sin stock' : stk <= 5 ? `● ${stk} disponibles` : `● ${stk} en stock`;
+  const spText  = stk === null ? '' : stk === 0 ? 'Sin stock' : stk <= 5 ? `${stk} disponibles` : `${stk} en stock`;
+  const soldBit = stk !== null && sold > 0 ? `<span class="stock-sold">${sold} vendido${sold !== 1 ? 's' : ''}</span>` : '';
+  const stockRow = stk !== null
+    ? `<div class="stock-row"><span class="stock-pill ${spClass}">● ${spText}</span>${soldBit}</div>`
+    : '';
   return `
   <div class="prod-card cat-${p.cat}" onclick="openModal('${p.code}')">
     <div class="prod-card-body">
@@ -911,7 +930,7 @@ function renderCard(p) {
         <span class="badge" style="background:${fm.bg};color:${fm.c};">${FAMILY_LABELS[p.family]||p.family}</span>
       </div>
       <div class="cnotes">${notes}</div>
-      <span class="stock-pill ${spClass}">${spDot}</span>
+      ${stockRow}
     </div>
   </div>`;
 }
