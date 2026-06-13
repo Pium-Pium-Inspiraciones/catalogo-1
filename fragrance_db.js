@@ -15,6 +15,21 @@ const FRAGRANCE_DB = [
       "cedar",
       "musk",
       "amber"
+    ],
+    "stock": 45,
+    "similar": [
+      {
+        "name": "My Way Ylang",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Acqua di Gio",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Eternity",
+        "house": "Calvin Klein"
+      }
     ]
   },
   {
@@ -33,6 +48,21 @@ const FRAGRANCE_DB = [
       "vanilla",
       "musk",
       "amber"
+    ],
+    "stock": 38,
+    "similar": [
+      {
+        "name": "La Vie est Belle",
+        "house": "Lancôme"
+      },
+      {
+        "name": "Good Girl",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "Fantasy",
+        "house": "Britney Spears"
+      }
     ]
   },
   {
@@ -51,6 +81,21 @@ const FRAGRANCE_DB = [
       "vanilla",
       "musk",
       "sandalwood"
+    ],
+    "stock": 22,
+    "similar": [
+      {
+        "name": "Yara",
+        "house": "Lattafa"
+      },
+      {
+        "name": "Cloud",
+        "house": "Ariana Grande"
+      },
+      {
+        "name": "La Vie est Belle",
+        "house": "Lancôme"
+      }
     ]
   },
   {
@@ -71,6 +116,21 @@ const FRAGRANCE_DB = [
       "lily",
       "vanilla",
       "musk"
+    ],
+    "stock": 31,
+    "similar": [
+      {
+        "name": "Cloud",
+        "house": "Ariana Grande"
+      },
+      {
+        "name": "God is a Woman",
+        "house": "Ariana Grande"
+      },
+      {
+        "name": "Ari",
+        "house": "Ariana Grande"
+      }
     ]
   },
   {
@@ -90,6 +150,21 @@ const FRAGRANCE_DB = [
       "patchouli",
       "vanilla",
       "musk"
+    ],
+    "stock": 18,
+    "similar": [
+      {
+        "name": "La Vie est Belle",
+        "house": "Lancôme"
+      },
+      {
+        "name": "Libre Intense",
+        "house": "YSL"
+      },
+      {
+        "name": "Good Girl",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -108,6 +183,21 @@ const FRAGRANCE_DB = [
       "magnolia",
       "musk",
       "sandalwood"
+    ],
+    "stock": 15,
+    "similar": [
+      {
+        "name": "Be Tempted",
+        "house": "DKNY"
+      },
+      {
+        "name": "Daisy Eau So Fresh",
+        "house": "Marc Jacobs"
+      },
+      {
+        "name": "212",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -125,6 +215,21 @@ const FRAGRANCE_DB = [
       "musk",
       "vanilla",
       "cedarwood"
+    ],
+    "stock": 42,
+    "similar": [
+      {
+        "name": "Good Girl",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "Good Girl Supreme",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "212 Sexy",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -144,6 +249,21 @@ const FRAGRANCE_DB = [
       "musk",
       "amber",
       "sandalwood"
+    ],
+    "stock": 35,
+    "similar": [
+      {
+        "name": "Dylan Blue",
+        "house": "Versace"
+      },
+      {
+        "name": "Chanel No. 5",
+        "house": "Chanel"
+      },
+      {
+        "name": "Bright Crystal Absolu",
+        "house": "Versace"
+      }
     ]
   },
   {
@@ -163,6 +283,21 @@ const FRAGRANCE_DB = [
       "tonka bean",
       "musk",
       "sandalwood"
+    ],
+    "stock": 88,
+    "similar": [
+      {
+        "name": "Good Girl Supreme",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "La Bomba",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "212 Sexy",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -183,6 +318,21 @@ const FRAGRANCE_DB = [
       "musk",
       "amber",
       "sandalwood"
+    ],
+    "stock": 12,
+    "similar": [
+      {
+        "name": "Paris Hilton",
+        "house": "Paris Hilton"
+      },
+      {
+        "name": "Fantasy",
+        "house": "Britney Spears"
+      },
+      {
+        "name": "Ari",
+        "house": "Ariana Grande"
+      }
     ]
   },
   {
@@ -201,6 +351,21 @@ const FRAGRANCE_DB = [
       "cedarwood",
       "musk",
       "sandalwood"
+    ],
+    "stock": 55,
+    "similar": [
+      {
+        "name": "212 Sexy",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "Good Girl",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "Tommy Girl",
+        "house": "Tommy Hilfiger"
+      }
     ]
   },
   {
@@ -220,6 +385,21 @@ const FRAGRANCE_DB = [
       "amber",
       "sandalwood",
       "vanilla"
+    ],
+    "stock": 47,
+    "similar": [
+      {
+        "name": "212",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "Good Girl",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "La Bomba",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -239,6 +419,21 @@ const FRAGRANCE_DB = [
       "musk",
       "sandalwood",
       "amber"
+    ],
+    "stock": 20,
+    "similar": [
+      {
+        "name": "Ari",
+        "house": "Ariana Grande"
+      },
+      {
+        "name": "Cloud",
+        "house": "Ariana Grande"
+      },
+      {
+        "name": "Fantasy",
+        "house": "Britney Spears"
+      }
     ]
   },
   {
@@ -257,6 +452,21 @@ const FRAGRANCE_DB = [
       "musk",
       "sandalwood",
       "vanilla"
+    ],
+    "stock": 14,
+    "similar": [
+      {
+        "name": "Pacific Paradise",
+        "house": "Escada"
+      },
+      {
+        "name": "Daisy Eau So Fresh",
+        "house": "Marc Jacobs"
+      },
+      {
+        "name": "Tommy Girl",
+        "house": "Tommy Hilfiger"
+      }
     ]
   },
   {
@@ -277,6 +487,21 @@ const FRAGRANCE_DB = [
       "vetiver",
       "musk",
       "amber"
+    ],
+    "stock": 72,
+    "similar": [
+      {
+        "name": "Chanel No. 5",
+        "house": "Chanel"
+      },
+      {
+        "name": "Libre Intense",
+        "house": "YSL"
+      },
+      {
+        "name": "La Vie est Belle",
+        "house": "Lancôme"
+      }
     ]
   },
   {
@@ -295,6 +520,21 @@ const FRAGRANCE_DB = [
       "cocoa",
       "tonka bean",
       "musk"
+    ],
+    "stock": 60,
+    "similar": [
+      {
+        "name": "Good Girl",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "La Bomba",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "212 Sexy",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -312,6 +552,21 @@ const FRAGRANCE_DB = [
       "amber",
       "musk",
       "sandalwood"
+    ],
+    "stock": 29,
+    "similar": [
+      {
+        "name": "Chanel No. 5",
+        "house": "Chanel"
+      },
+      {
+        "name": "Libre Intense",
+        "house": "YSL"
+      },
+      {
+        "name": "My Way Ylang",
+        "house": "Giorgio Armani"
+      }
     ]
   },
   {
@@ -330,6 +585,21 @@ const FRAGRANCE_DB = [
       "amber",
       "musk",
       "patchouli"
+    ],
+    "stock": 33,
+    "similar": [
+      {
+        "name": "Dylan Blue",
+        "house": "Versace"
+      },
+      {
+        "name": "Bright Crystal Absolu",
+        "house": "Versace"
+      },
+      {
+        "name": "Dolce & Gabbana Light Blue",
+        "house": "Dolce & Gabbana"
+      }
     ]
   },
   {
@@ -349,6 +619,21 @@ const FRAGRANCE_DB = [
       "amber",
       "jasmine",
       "rose"
+    ],
+    "stock": 64,
+    "similar": [
+      {
+        "name": "Q",
+        "house": "Dolce & Gabbana"
+      },
+      {
+        "name": "Tommy Girl",
+        "house": "Tommy Hilfiger"
+      },
+      {
+        "name": "212",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -368,6 +653,21 @@ const FRAGRANCE_DB = [
       "amber",
       "sandalwood",
       "musk"
+    ],
+    "stock": 39,
+    "similar": [
+      {
+        "name": "Ralph",
+        "house": "Ralph Lauren"
+      },
+      {
+        "name": "Tommy Girl",
+        "house": "Tommy Hilfiger"
+      },
+      {
+        "name": "212",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -388,6 +688,21 @@ const FRAGRANCE_DB = [
       "amber",
       "sandalwood",
       "vanilla"
+    ],
+    "stock": 26,
+    "similar": [
+      {
+        "name": "Ari",
+        "house": "Ariana Grande"
+      },
+      {
+        "name": "Can Can",
+        "house": "Paris Hilton"
+      },
+      {
+        "name": "Paris Hilton",
+        "house": "Paris Hilton"
+      }
     ]
   },
   {
@@ -408,6 +723,21 @@ const FRAGRANCE_DB = [
       "amber",
       "vanilla",
       "cedarwood"
+    ],
+    "stock": 51,
+    "similar": [
+      {
+        "name": "Black Opium Floral Shock",
+        "house": "YSL"
+      },
+      {
+        "name": "Libre Intense",
+        "house": "YSL"
+      },
+      {
+        "name": "Chanel No. 5",
+        "house": "Chanel"
+      }
     ]
   },
   {
@@ -428,6 +758,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "vanilla",
       "amber"
+    ],
+    "stock": 24,
+    "similar": [
+      {
+        "name": "Cloud",
+        "house": "Ariana Grande"
+      },
+      {
+        "name": "Ari",
+        "house": "Ariana Grande"
+      },
+      {
+        "name": "God is a Woman",
+        "house": "Ariana Grande"
+      }
     ]
   },
   {
@@ -446,6 +791,21 @@ const FRAGRANCE_DB = [
       "vetiver",
       "musk",
       "cedarwood"
+    ],
+    "stock": 17,
+    "similar": [
+      {
+        "name": "Valentino Donna Born in Roma",
+        "house": "Valentino"
+      },
+      {
+        "name": "Good Girl",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "La Vie est Belle",
+        "house": "Lancôme"
+      }
     ]
   },
   {
@@ -464,6 +824,21 @@ const FRAGRANCE_DB = [
       "amber",
       "musk",
       "patchouli"
+    ],
+    "stock": 44,
+    "similar": [
+      {
+        "name": "Chanel No. 5",
+        "house": "Chanel"
+      },
+      {
+        "name": "La Vie est Belle",
+        "house": "Lancôme"
+      },
+      {
+        "name": "Libre Intense",
+        "house": "YSL"
+      }
     ]
   },
   {
@@ -483,6 +858,21 @@ const FRAGRANCE_DB = [
       "musk",
       "amber",
       "vanilla"
+    ],
+    "stock": 10,
+    "similar": [
+      {
+        "name": "Can Can",
+        "house": "Paris Hilton"
+      },
+      {
+        "name": "Ombre Rose",
+        "house": "Jean Charles Brosseau"
+      },
+      {
+        "name": "Fantasy",
+        "house": "Britney Spears"
+      }
     ]
   },
   {
@@ -502,6 +892,21 @@ const FRAGRANCE_DB = [
       "musk",
       "sandalwood",
       "amber"
+    ],
+    "stock": 8,
+    "similar": [
+      {
+        "name": "Spell on You",
+        "house": "Louis Vuitton"
+      },
+      {
+        "name": "Libre Intense",
+        "house": "YSL"
+      },
+      {
+        "name": "Chanel No. 5",
+        "house": "Chanel"
+      }
     ]
   },
   {
@@ -521,6 +926,21 @@ const FRAGRANCE_DB = [
       "musk",
       "sandalwood",
       "amber"
+    ],
+    "stock": 21,
+    "similar": [
+      {
+        "name": "Tommy Girl",
+        "house": "Tommy Hilfiger"
+      },
+      {
+        "name": "Ralph",
+        "house": "Ralph Lauren"
+      },
+      {
+        "name": "Eternity",
+        "house": "Calvin Klein"
+      }
     ]
   },
   {
@@ -541,6 +961,21 @@ const FRAGRANCE_DB = [
       "patchouli",
       "vanilla",
       "musk"
+    ],
+    "stock": 95,
+    "similar": [
+      {
+        "name": "La Vie est Belle L'Elixir",
+        "house": "Lancôme"
+      },
+      {
+        "name": "Good Girl",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "Libre Intense",
+        "house": "YSL"
+      }
     ]
   },
   {
@@ -561,6 +996,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "vanilla",
       "amber"
+    ],
+    "stock": 5,
+    "similar": [
+      {
+        "name": "Ari",
+        "house": "Ariana Grande"
+      },
+      {
+        "name": "Fantasy",
+        "house": "Britney Spears"
+      },
+      {
+        "name": "Can Can",
+        "house": "Paris Hilton"
+      }
     ]
   },
   {
@@ -580,6 +1030,21 @@ const FRAGRANCE_DB = [
       "cedar",
       "white musk",
       "vanilla"
+    ],
+    "stock": 36,
+    "similar": [
+      {
+        "name": "Acqua di Gio",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "My Way Ylang",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Burberry Goddess",
+        "house": "Burberry"
+      }
     ]
   },
   {
@@ -599,6 +1064,21 @@ const FRAGRANCE_DB = [
       "musk",
       "cedarwood",
       "patchouli"
+    ],
+    "stock": 58,
+    "similar": [
+      {
+        "name": "Libre Intense",
+        "house": "YSL"
+      },
+      {
+        "name": "Black Opium Floral Shock",
+        "house": "YSL"
+      },
+      {
+        "name": "Good Girl",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -618,6 +1098,21 @@ const FRAGRANCE_DB = [
       "praline",
       "vanilla",
       "cashmere"
+    ],
+    "stock": 27,
+    "similar": [
+      {
+        "name": "Ari",
+        "house": "Ariana Grande"
+      },
+      {
+        "name": "God is a Woman",
+        "house": "Ariana Grande"
+      },
+      {
+        "name": "Fantasy",
+        "house": "Britney Spears"
+      }
     ]
   },
   {
@@ -637,6 +1132,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "musk",
       "vanilla"
+    ],
+    "stock": 3,
+    "similar": [
+      {
+        "name": "Ombre Rose",
+        "house": "Jean Charles Brosseau"
+      },
+      {
+        "name": "Halloween",
+        "house": "Jesus Del Pozo"
+      },
+      {
+        "name": "Red Door",
+        "house": "Elizabeth Arden"
+      }
     ]
   },
   {
@@ -656,6 +1166,21 @@ const FRAGRANCE_DB = [
       "musk",
       "amber",
       "sandalwood"
+    ],
+    "stock": 19,
+    "similar": [
+      {
+        "name": "Toy 2",
+        "house": "Moschino"
+      },
+      {
+        "name": "Fantasy",
+        "house": "Britney Spears"
+      },
+      {
+        "name": "Ari",
+        "house": "Ariana Grande"
+      }
     ]
   },
   {
@@ -675,6 +1200,21 @@ const FRAGRANCE_DB = [
       "musk",
       "amber",
       "iris"
+    ],
+    "stock": 23,
+    "similar": [
+      {
+        "name": "Paradoxe Virtual Flower",
+        "house": "Prada"
+      },
+      {
+        "name": "Libre Intense",
+        "house": "YSL"
+      },
+      {
+        "name": "Burberry Goddess",
+        "house": "Burberry"
+      }
     ]
   },
   {
@@ -695,6 +1235,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "amber",
       "vanilla"
+    ],
+    "stock": 11,
+    "similar": [
+      {
+        "name": "Can Can",
+        "house": "Paris Hilton"
+      },
+      {
+        "name": "Fantasy",
+        "house": "Britney Spears"
+      },
+      {
+        "name": "Ari",
+        "house": "Ariana Grande"
+      }
     ]
   },
   {
@@ -713,6 +1268,21 @@ const FRAGRANCE_DB = [
       "jasmine",
       "musk",
       "cedarwood"
+    ],
+    "stock": 9,
+    "similar": [
+      {
+        "name": "Cherry in Japan",
+        "house": "Escada"
+      },
+      {
+        "name": "Tommy Girl",
+        "house": "Tommy Hilfiger"
+      },
+      {
+        "name": "212",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -732,6 +1302,21 @@ const FRAGRANCE_DB = [
       "lily",
       "musk",
       "cedarwood"
+    ],
+    "stock": 16,
+    "similar": [
+      {
+        "name": "Ralph",
+        "house": "Ralph Lauren"
+      },
+      {
+        "name": "Tommy Girl",
+        "house": "Tommy Hilfiger"
+      },
+      {
+        "name": "Daisy Eau So Fresh",
+        "house": "Marc Jacobs"
+      }
     ]
   },
   {
@@ -750,6 +1335,21 @@ const FRAGRANCE_DB = [
       "freesia",
       "musk",
       "sandalwood"
+    ],
+    "stock": 28,
+    "similar": [
+      {
+        "name": "Ralph Fresh",
+        "house": "Ralph Lauren"
+      },
+      {
+        "name": "Tommy Girl",
+        "house": "Tommy Hilfiger"
+      },
+      {
+        "name": "Eternity",
+        "house": "Calvin Klein"
+      }
     ]
   },
   {
@@ -769,6 +1369,21 @@ const FRAGRANCE_DB = [
       "musk",
       "sandalwood",
       "amber"
+    ],
+    "stock": 7,
+    "similar": [
+      {
+        "name": "Red Door",
+        "house": "Elizabeth Arden"
+      },
+      {
+        "name": "Ombre Rose",
+        "house": "Jean Charles Brosseau"
+      },
+      {
+        "name": "Halloween",
+        "house": "Jesus Del Pozo"
+      }
     ]
   },
   {
@@ -788,6 +1403,21 @@ const FRAGRANCE_DB = [
       "musk",
       "cedarwood",
       "amber"
+    ],
+    "stock": 32,
+    "similar": [
+      {
+        "name": "Dolce & Gabbana Light Blue",
+        "house": "Dolce & Gabbana"
+      },
+      {
+        "name": "Tommy Girl",
+        "house": "Tommy Hilfiger"
+      },
+      {
+        "name": "212",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -806,6 +1436,21 @@ const FRAGRANCE_DB = [
       "jasmine",
       "musk",
       "sandalwood"
+    ],
+    "stock": 25,
+    "similar": [
+      {
+        "name": "Tommy Girl",
+        "house": "Tommy Hilfiger"
+      },
+      {
+        "name": "212",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "Ralph Fresh",
+        "house": "Ralph Lauren"
+      }
     ]
   },
   {
@@ -825,6 +1470,21 @@ const FRAGRANCE_DB = [
       "musk",
       "sandalwood",
       "amber"
+    ],
+    "stock": 13,
+    "similar": [
+      {
+        "name": "Be Delicious Bright Crush",
+        "house": "DKNY"
+      },
+      {
+        "name": "Daisy Eau So Fresh",
+        "house": "Marc Jacobs"
+      },
+      {
+        "name": "212",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -844,6 +1504,21 @@ const FRAGRANCE_DB = [
       "musk",
       "sandalwood",
       "cedar"
+    ],
+    "stock": 43,
+    "similar": [
+      {
+        "name": "212",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "Ralph",
+        "house": "Ralph Lauren"
+      },
+      {
+        "name": "Eternity",
+        "house": "Calvin Klein"
+      }
     ]
   },
   {
@@ -863,6 +1538,21 @@ const FRAGRANCE_DB = [
       "musk",
       "cedarwood",
       "patchouli"
+    ],
+    "stock": 30,
+    "similar": [
+      {
+        "name": "Valentino Donna Green Stravaganza",
+        "house": "Valentino"
+      },
+      {
+        "name": "Good Girl",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "La Vie est Belle",
+        "house": "Lancôme"
+      }
     ]
   },
   {
@@ -883,22 +1573,19 @@ const FRAGRANCE_DB = [
     ],
     "similar": [
       {
-        "name": "Initio Atomic Rose",
-        "house": "Initio"
+        "name": "Lost Cherry",
+        "house": "Tom Ford"
       },
       {
-        "name": "Montale Intense Cafe",
-        "house": "Montale"
+        "name": "Tobacco Vanille",
+        "house": "Tom Ford"
       },
       {
-        "name": "Maison Margiela Replica Jazz Club",
-        "house": "Maison Margiela"
-      },
-      {
-        "name": "Kayali Vanilla 28",
-        "house": "Kayali"
+        "name": "Santal 33",
+        "house": "Le Labo"
       }
-    ]
+    ],
+    "stock": 18
   },
   {
     "cat": "unisex",
@@ -920,22 +1607,19 @@ const FRAGRANCE_DB = [
     ],
     "similar": [
       {
-        "name": "Davidoff Cool Water",
-        "house": "Davidoff"
+        "name": "Eternity",
+        "house": "Calvin Klein"
       },
       {
-        "name": "L'Eau d'Issey",
-        "house": "Issey Miyake"
+        "name": "Tommy Girl",
+        "house": "Tommy Hilfiger"
       },
       {
-        "name": "Azzaro Chrome",
-        "house": "Azzaro"
-      },
-      {
-        "name": "Joop! Homme",
-        "house": "Joop!"
+        "name": "Acqua di Gio",
+        "house": "Giorgio Armani"
       }
-    ]
+    ],
+    "stock": 41
   },
   {
     "cat": "unisex",
@@ -957,22 +1641,19 @@ const FRAGRANCE_DB = [
     ],
     "similar": [
       {
-        "name": "Oud for Greatness",
-        "house": "Initio"
+        "name": "Yara",
+        "house": "Lattafa"
       },
       {
-        "name": "Amouage Interlude Man",
-        "house": "Amouage"
+        "name": "Baccarat Rouge 540",
+        "house": "Maison Francis Kurkdjian"
       },
       {
-        "name": "Al-Rehab Khaltat Al Khulood",
-        "house": "Al-Rehab"
-      },
-      {
-        "name": "Armaf Club de Nuit Intense",
-        "house": "Armaf"
+        "name": "Lost Cherry",
+        "house": "Tom Ford"
       }
-    ]
+    ],
+    "stock": 14
   },
   {
     "cat": "unisex",
@@ -992,22 +1673,19 @@ const FRAGRANCE_DB = [
     ],
     "similar": [
       {
-        "name": "Guerlain Jicky",
-        "house": "Guerlain"
+        "name": "Santal 33",
+        "house": "Le Labo"
       },
       {
-        "name": "Yves Saint Laurent Kouros",
-        "house": "YSL"
+        "name": "Tobacco Vanille",
+        "house": "Tom Ford"
       },
       {
-        "name": "Dior Fahrenheit",
-        "house": "Dior"
-      },
-      {
-        "name": "Penhaligon's Lavandula",
-        "house": "Penhaligon's"
+        "name": "Baccarat Rouge 540",
+        "house": "Maison Francis Kurkdjian"
       }
-    ]
+    ],
+    "stock": 11
   },
   {
     "cat": "unisex",
@@ -1030,22 +1708,19 @@ const FRAGRANCE_DB = [
     ],
     "similar": [
       {
-        "name": "Juliette Has a Gun Calamity J",
-        "house": "Juliette Has a Gun"
+        "name": "Tobacco Vanille",
+        "house": "Tom Ford"
       },
       {
-        "name": "Givenchy Ange ou Demon Le Secret",
-        "house": "Givenchy"
+        "name": "Lost Cherry",
+        "house": "Tom Ford"
       },
       {
-        "name": "Lancôme La Nuit Trésor",
-        "house": "Lancôme"
-      },
-      {
-        "name": "Viktor&Rolf Flowerbomb Nectar",
-        "house": "Viktor&Rolf"
+        "name": "Baccarat Rouge 540",
+        "house": "Maison Francis Kurkdjian"
       }
-    ]
+    ],
+    "stock": 16
   },
   {
     "cat": "unisex",
@@ -1066,22 +1741,19 @@ const FRAGRANCE_DB = [
     ],
     "similar": [
       {
-        "name": "Maison Margiela Replica Beach Walk",
-        "house": "Maison Margiela"
+        "name": "Pacific Chill",
+        "house": "Louis Vuitton"
       },
       {
-        "name": "Davidoff Cool Water",
-        "house": "Davidoff"
+        "name": "Ombre Nomade",
+        "house": "Louis Vuitton"
       },
       {
-        "name": "Acqua di Parma Colonia",
-        "house": "Acqua di Parma"
-      },
-      {
-        "name": "Escada Pacific Paradise",
-        "house": "Escada"
+        "name": "Santal 33",
+        "house": "Le Labo"
       }
-    ]
+    ],
+    "stock": 8
   },
   {
     "cat": "unisex",
@@ -1104,22 +1776,19 @@ const FRAGRANCE_DB = [
     ],
     "similar": [
       {
-        "name": "Tam Dao",
-        "house": "Diptyque"
+        "name": "Lavande 31",
+        "house": "Le Labo"
       },
       {
-        "name": "Byredo Gypsy Water",
-        "house": "Byredo"
+        "name": "Tobacco Vanille",
+        "house": "Tom Ford"
       },
       {
-        "name": "Maison Margiela Replica Sailing Day",
-        "house": "Maison Margiela"
-      },
-      {
-        "name": "Azzaro Wanted",
-        "house": "Azzaro"
+        "name": "Tuscan Leather",
+        "house": "Tom Ford"
       }
-    ]
+    ],
+    "stock": 12
   },
   {
     "cat": "unisex",
@@ -1140,22 +1809,19 @@ const FRAGRANCE_DB = [
     ],
     "similar": [
       {
-        "name": "Serge Lutens Chergui",
-        "house": "Serge Lutens"
+        "name": "Lost Cherry",
+        "house": "Tom Ford"
       },
       {
-        "name": "Maison Margiela Replica Jazz Club",
-        "house": "Maison Margiela"
+        "name": "Tuscan Leather",
+        "house": "Tom Ford"
       },
       {
-        "name": "Yves Saint Laurent Opium Pour Homme",
-        "house": "YSL"
-      },
-      {
-        "name": "Montale Honey Aoud",
-        "house": "Montale"
+        "name": "Baccarat Rouge 540",
+        "house": "Maison Francis Kurkdjian"
       }
-    ]
+    ],
+    "stock": 20
   },
   {
     "cat": "unisex",
@@ -1178,22 +1844,19 @@ const FRAGRANCE_DB = [
     ],
     "similar": [
       {
-        "name": "Parfums de Marly Herod",
-        "house": "Parfums de Marly"
+        "name": "Tobacco Vanille",
+        "house": "Tom Ford"
       },
       {
-        "name": "Creed Viking",
-        "house": "Creed"
+        "name": "Santal 33",
+        "house": "Le Labo"
       },
       {
-        "name": "Montale Aoud Leather",
-        "house": "Montale"
-      },
-      {
-        "name": "Armaf Club de Nuit Milestone",
-        "house": "Armaf"
+        "name": "Ombre Nomade",
+        "house": "Louis Vuitton"
       }
-    ]
+    ],
+    "stock": 15
   },
   {
     "cat": "cab",
@@ -1212,6 +1875,21 @@ const FRAGRANCE_DB = [
       "cedarwood",
       "amber",
       "patchouli"
+    ],
+    "stock": 33,
+    "similar": [
+      {
+        "name": "Lacoste",
+        "house": "Lacoste"
+      },
+      {
+        "name": "Lacoste L.12.12 White",
+        "house": "Lacoste"
+      },
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      }
     ]
   },
   {
@@ -1230,6 +1908,21 @@ const FRAGRANCE_DB = [
       "amber",
       "sandalwood",
       "musk"
+    ],
+    "stock": 49,
+    "similar": [
+      {
+        "name": "212 VIP Men",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "212 Men",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "Bad Boy",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -1252,6 +1945,21 @@ const FRAGRANCE_DB = [
       "musk",
       "ambergris",
       "sandalwood"
+    ],
+    "stock": 22,
+    "similar": [
+      {
+        "name": "Bleu de Chanel",
+        "house": "Chanel"
+      },
+      {
+        "name": "Sauvage EDP",
+        "house": "Dior"
+      },
+      {
+        "name": "Invictus",
+        "house": "Paco Rabanne"
+      }
     ]
   },
   {
@@ -1270,6 +1978,21 @@ const FRAGRANCE_DB = [
       "musk",
       "patchouli",
       "sandalwood"
+    ],
+    "stock": 67,
+    "similar": [
+      {
+        "name": "Acqua di Gio",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Acqua di Giò Elixir",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Bleu de Chanel",
+        "house": "Chanel"
+      }
     ]
   },
   {
@@ -1290,6 +2013,21 @@ const FRAGRANCE_DB = [
       "cedar",
       "musk",
       "amber"
+    ],
+    "stock": 71,
+    "similar": [
+      {
+        "name": "Acqua di Gio Profumo",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Acqua di Giò Elixir",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Bleu de Chanel",
+        "house": "Chanel"
+      }
     ]
   },
   {
@@ -1309,6 +2047,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "patchouli",
       "resin"
+    ],
+    "stock": 38,
+    "similar": [
+      {
+        "name": "Acqua di Gio",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Acqua di Gio Profumo",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Sauvage EDP",
+        "house": "Dior"
+      }
     ]
   },
   {
@@ -1327,6 +2080,21 @@ const FRAGRANCE_DB = [
       "musk",
       "cedarwood",
       "amber"
+    ],
+    "stock": 29,
+    "similar": [
+      {
+        "name": "Acqua di Gio",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Acqua di Gio Profumo",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      }
     ]
   },
   {
@@ -1346,6 +2114,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "amber",
       "oakmoss"
+    ],
+    "stock": 8,
+    "similar": [
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      },
+      {
+        "name": "Drakkar Noir",
+        "house": "Guy Laroche"
+      },
+      {
+        "name": "Nautica Voyage",
+        "house": "Nautica"
+      }
     ]
   },
   {
@@ -1365,6 +2148,21 @@ const FRAGRANCE_DB = [
       "vanilla",
       "amber",
       "tonka bean"
+    ],
+    "stock": 35,
+    "similar": [
+      {
+        "name": "Le Male Elixir",
+        "house": "Jean Paul Gaultier"
+      },
+      {
+        "name": "Scandal Pour Homme",
+        "house": "Jean Paul Gaultier"
+      },
+      {
+        "name": "1 Million",
+        "house": "Paco Rabanne"
+      }
     ]
   },
   {
@@ -1387,6 +2185,21 @@ const FRAGRANCE_DB = [
       "vetiver",
       "incense",
       "musk"
+    ],
+    "stock": 83,
+    "similar": [
+      {
+        "name": "Sauvage EDP",
+        "house": "Dior"
+      },
+      {
+        "name": "Aventus",
+        "house": "Creed"
+      },
+      {
+        "name": "Acqua di Gio",
+        "house": "Giorgio Armani"
+      }
     ]
   },
   {
@@ -1406,6 +2219,21 @@ const FRAGRANCE_DB = [
       "musk",
       "sandalwood",
       "cedarwood"
+    ],
+    "stock": 55,
+    "similar": [
+      {
+        "name": "212 Vip Black",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "212 Men",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "CH Men",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -1425,6 +2253,21 @@ const FRAGRANCE_DB = [
       "cedarwood",
       "amber",
       "rosemary"
+    ],
+    "stock": 27,
+    "similar": [
+      {
+        "name": "Dolce & Gabbana",
+        "house": "Dolce & Gabbana"
+      },
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      },
+      {
+        "name": "Nautica Voyage",
+        "house": "Nautica"
+      }
     ]
   },
   {
@@ -1443,6 +2286,21 @@ const FRAGRANCE_DB = [
       "musk",
       "cedarwood",
       "sandalwood"
+    ],
+    "stock": 10,
+    "similar": [
+      {
+        "name": "Polo Red",
+        "house": "Ralph Lauren"
+      },
+      {
+        "name": "1 Million",
+        "house": "Paco Rabanne"
+      },
+      {
+        "name": "Bad Boy",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -1461,6 +2319,21 @@ const FRAGRANCE_DB = [
       "musk",
       "sandalwood",
       "amber"
+    ],
+    "stock": 5,
+    "similar": [
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      },
+      {
+        "name": "Drakkar Noir",
+        "house": "Guy Laroche"
+      },
+      {
+        "name": "Eternity",
+        "house": "Calvin Klein"
+      }
     ]
   },
   {
@@ -1480,6 +2353,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "musk",
       "cedarwood"
+    ],
+    "stock": 31,
+    "similar": [
+      {
+        "name": "CH Men",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "212 Men",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "Hugo",
+        "house": "Hugo Boss"
+      }
     ]
   },
   {
@@ -1499,6 +2387,21 @@ const FRAGRANCE_DB = [
       "musk",
       "sandalwood",
       "amber"
+    ],
+    "stock": 62,
+    "similar": [
+      {
+        "name": "212 Vip Black",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "CH Men",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "212 VIP Men",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -1518,6 +2421,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "musk",
       "patchouli"
+    ],
+    "stock": 44,
+    "similar": [
+      {
+        "name": "212 Men",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "Herrera For Men",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "Hugo",
+        "house": "Hugo Boss"
+      }
     ]
   },
   {
@@ -1538,6 +2456,21 @@ const FRAGRANCE_DB = [
       "ambergris",
       "musk",
       "sandalwood"
+    ],
+    "stock": 19,
+    "similar": [
+      {
+        "name": "Aventus",
+        "house": "Creed"
+      },
+      {
+        "name": "Bleu de Chanel",
+        "house": "Chanel"
+      },
+      {
+        "name": "Sauvage EDP",
+        "house": "Dior"
+      }
     ]
   },
   {
@@ -1558,6 +2491,21 @@ const FRAGRANCE_DB = [
       "amber",
       "musk",
       "cedarwood"
+    ],
+    "stock": 36,
+    "similar": [
+      {
+        "name": "Nautica Voyage",
+        "house": "Nautica"
+      },
+      {
+        "name": "Acqua di Gio",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Bleu de Chanel",
+        "house": "Chanel"
+      }
     ]
   },
   {
@@ -1575,6 +2523,21 @@ const FRAGRANCE_DB = [
       "leather",
       "musk",
       "cedarwood"
+    ],
+    "stock": 14,
+    "similar": [
+      {
+        "name": "Drakkar Noir",
+        "house": "Guy Laroche"
+      },
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      },
+      {
+        "name": "Bad Boy",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -1593,6 +2556,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "musk",
       "cedarwood"
+    ],
+    "stock": 42,
+    "similar": [
+      {
+        "name": "Light Blue Italian Zest",
+        "house": "Dolce & Gabbana"
+      },
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      },
+      {
+        "name": "Nautica Voyage",
+        "house": "Nautica"
+      }
     ]
   },
   {
@@ -1612,6 +2590,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "oakmoss",
       "musk"
+    ],
+    "stock": 17,
+    "similar": [
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      },
+      {
+        "name": "Drakkar Noir",
+        "house": "Guy Laroche"
+      },
+      {
+        "name": "Hugo",
+        "house": "Hugo Boss"
+      }
     ]
   },
   {
@@ -1631,6 +2624,21 @@ const FRAGRANCE_DB = [
       "musk",
       "cedarwood",
       "tonka bean"
+    ],
+    "stock": 26,
+    "similar": [
+      {
+        "name": "Le Male Aviator",
+        "house": "Jean Paul Gaultier"
+      },
+      {
+        "name": "Scandal Pour Homme",
+        "house": "Jean Paul Gaultier"
+      },
+      {
+        "name": "1 Million",
+        "house": "Paco Rabanne"
+      }
     ]
   },
   {
@@ -1648,6 +2656,21 @@ const FRAGRANCE_DB = [
       "musk",
       "sandalwood",
       "amber"
+    ],
+    "stock": 48,
+    "similar": [
+      {
+        "name": "Hugo",
+        "house": "Hugo Boss"
+      },
+      {
+        "name": "Hugo Man Extreme",
+        "house": "Hugo Boss"
+      },
+      {
+        "name": "Sauvage EDP",
+        "house": "Dior"
+      }
     ]
   },
   {
@@ -1667,6 +2690,21 @@ const FRAGRANCE_DB = [
       "musk",
       "patchouli",
       "vanilla"
+    ],
+    "stock": 32,
+    "similar": [
+      {
+        "name": "Le Male Aviator",
+        "house": "Jean Paul Gaultier"
+      },
+      {
+        "name": "Le Male Elixir",
+        "house": "Jean Paul Gaultier"
+      },
+      {
+        "name": "1 Million",
+        "house": "Paco Rabanne"
+      }
     ]
   },
   {
@@ -1685,6 +2723,21 @@ const FRAGRANCE_DB = [
       "musk",
       "cedarwood",
       "amber"
+    ],
+    "stock": 21,
+    "similar": [
+      {
+        "name": "Valentino Uomo Born in Roma",
+        "house": "Valentino"
+      },
+      {
+        "name": "Bleu de Chanel",
+        "house": "Chanel"
+      },
+      {
+        "name": "Sauvage EDP",
+        "house": "Dior"
+      }
     ]
   },
   {
@@ -1704,6 +2757,21 @@ const FRAGRANCE_DB = [
       "amber",
       "musk",
       "cedarwood"
+    ],
+    "stock": 40,
+    "similar": [
+      {
+        "name": "CK One",
+        "house": "Calvin Klein"
+      },
+      {
+        "name": "Tommy For Men",
+        "house": "Tommy Hilfiger"
+      },
+      {
+        "name": "Polo Blue",
+        "house": "Ralph Lauren"
+      }
     ]
   },
   {
@@ -1723,6 +2791,21 @@ const FRAGRANCE_DB = [
       "amber",
       "musk",
       "leather"
+    ],
+    "stock": 28,
+    "similar": [
+      {
+        "name": "Aventus",
+        "house": "Creed"
+      },
+      {
+        "name": "Bleu de Chanel",
+        "house": "Chanel"
+      },
+      {
+        "name": "Sauvage EDP",
+        "house": "Dior"
+      }
     ]
   },
   {
@@ -1745,6 +2828,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "cedarwood",
       "oakmoss"
+    ],
+    "stock": 74,
+    "similar": [
+      {
+        "name": "Sauvage EDP",
+        "house": "Dior"
+      },
+      {
+        "name": "Bleu de Chanel",
+        "house": "Chanel"
+      },
+      {
+        "name": "Invictus",
+        "house": "Paco Rabanne"
+      }
     ]
   },
   {
@@ -1763,6 +2861,21 @@ const FRAGRANCE_DB = [
       "musk",
       "cedarwood",
       "amber"
+    ],
+    "stock": 39,
+    "similar": [
+      {
+        "name": "Hugo Man Extreme",
+        "house": "Hugo Boss"
+      },
+      {
+        "name": "Boss The Scent",
+        "house": "Hugo Boss"
+      },
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      }
     ]
   },
   {
@@ -1782,6 +2895,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "amber",
       "cedarwood"
+    ],
+    "stock": 23,
+    "similar": [
+      {
+        "name": "Hugo",
+        "house": "Hugo Boss"
+      },
+      {
+        "name": "Boss The Scent",
+        "house": "Hugo Boss"
+      },
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      }
     ]
   },
   {
@@ -1801,6 +2929,21 @@ const FRAGRANCE_DB = [
       "cedarwood",
       "amber",
       "sandalwood"
+    ],
+    "stock": 9,
+    "similar": [
+      {
+        "name": "Ombre Nomade",
+        "house": "Louis Vuitton"
+      },
+      {
+        "name": "Pacific Chill",
+        "house": "Louis Vuitton"
+      },
+      {
+        "name": "Aventus",
+        "house": "Creed"
+      }
     ]
   },
   {
@@ -1820,6 +2963,21 @@ const FRAGRANCE_DB = [
       "musk",
       "guaiac wood",
       "oakmoss"
+    ],
+    "stock": 91,
+    "similar": [
+      {
+        "name": "Invictus Legend EDP",
+        "house": "Paco Rabanne"
+      },
+      {
+        "name": "Invictus Platinum",
+        "house": "Paco Rabanne"
+      },
+      {
+        "name": "1 Million",
+        "house": "Paco Rabanne"
+      }
     ]
   },
   {
@@ -1839,6 +2997,21 @@ const FRAGRANCE_DB = [
       "musk",
       "amber",
       "sandalwood"
+    ],
+    "stock": 16,
+    "similar": [
+      {
+        "name": "Toy 2",
+        "house": "Moschino"
+      },
+      {
+        "name": "Bad Boy",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "1 Million",
+        "house": "Paco Rabanne"
+      }
     ]
   },
   {
@@ -1857,6 +3030,21 @@ const FRAGRANCE_DB = [
       "musk",
       "cedarwood",
       "amber"
+    ],
+    "stock": 37,
+    "similar": [
+      {
+        "name": "L.12.12 Noir",
+        "house": "Lacoste"
+      },
+      {
+        "name": "Lacoste L.12.12 White",
+        "house": "Lacoste"
+      },
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      }
     ]
   },
   {
@@ -1875,6 +3063,21 @@ const FRAGRANCE_DB = [
       "musk",
       "cedarwood",
       "sandalwood"
+    ],
+    "stock": 24,
+    "similar": [
+      {
+        "name": "Lacoste",
+        "house": "Lacoste"
+      },
+      {
+        "name": "L.12.12 Noir",
+        "house": "Lacoste"
+      },
+      {
+        "name": "Nautica Voyage",
+        "house": "Nautica"
+      }
     ]
   },
   {
@@ -1894,6 +3097,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "musk",
       "cedarwood"
+    ],
+    "stock": 45,
+    "similar": [
+      {
+        "name": "Legend Spirit",
+        "house": "Mont Blanc"
+      },
+      {
+        "name": "Invictus",
+        "house": "Paco Rabanne"
+      },
+      {
+        "name": "Bleu de Chanel",
+        "house": "Chanel"
+      }
     ]
   },
   {
@@ -1912,6 +3130,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "oakmoss",
       "cedarwood"
+    ],
+    "stock": 30,
+    "similar": [
+      {
+        "name": "Invictus",
+        "house": "Paco Rabanne"
+      },
+      {
+        "name": "Invictus Platinum",
+        "house": "Paco Rabanne"
+      },
+      {
+        "name": "1 Million",
+        "house": "Paco Rabanne"
+      }
     ]
   },
   {
@@ -1930,6 +3163,21 @@ const FRAGRANCE_DB = [
       "musk",
       "cedarwood",
       "sandalwood"
+    ],
+    "stock": 25,
+    "similar": [
+      {
+        "name": "Legend de Caballero",
+        "house": "Mont Blanc"
+      },
+      {
+        "name": "Invictus",
+        "house": "Paco Rabanne"
+      },
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      }
     ]
   },
   {
@@ -1949,6 +3197,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "cedarwood",
       "amber"
+    ],
+    "stock": 18,
+    "similar": [
+      {
+        "name": "Bulgari",
+        "house": "Bvlgari"
+      },
+      {
+        "name": "Acqua di Gio",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      }
     ]
   },
   {
@@ -1968,6 +3231,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "cedarwood",
       "vanilla"
+    ],
+    "stock": 20,
+    "similar": [
+      {
+        "name": "Valentino Uomo Green Stravaganza",
+        "house": "Valentino"
+      },
+      {
+        "name": "Bleu de Chanel",
+        "house": "Chanel"
+      },
+      {
+        "name": "Sauvage EDP",
+        "house": "Dior"
+      }
     ]
   },
   {
@@ -1986,6 +3264,21 @@ const FRAGRANCE_DB = [
       "cedarwood",
       "amber",
       "sandalwood"
+    ],
+    "stock": 43,
+    "similar": [
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      },
+      {
+        "name": "Acqua di Gio",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Polo Blue",
+        "house": "Ralph Lauren"
+      }
     ]
   },
   {
@@ -2005,6 +3298,21 @@ const FRAGRANCE_DB = [
       "musk",
       "sandalwood",
       "resin"
+    ],
+    "stock": 7,
+    "similar": [
+      {
+        "name": "L'Immensite",
+        "house": "Louis Vuitton"
+      },
+      {
+        "name": "Pacific Chill",
+        "house": "Louis Vuitton"
+      },
+      {
+        "name": "Aventus",
+        "house": "Creed"
+      }
     ]
   },
   {
@@ -2025,6 +3333,21 @@ const FRAGRANCE_DB = [
       "musk",
       "patchouli",
       "tonka bean"
+    ],
+    "stock": 34,
+    "similar": [
+      {
+        "name": "Club de Nuit Intense Man",
+        "house": "Armaf"
+      },
+      {
+        "name": "Aventus",
+        "house": "Creed"
+      },
+      {
+        "name": "Bleu de Chanel",
+        "house": "Chanel"
+      }
     ]
   },
   {
@@ -2044,6 +3367,21 @@ const FRAGRANCE_DB = [
       "amber",
       "sandalwood",
       "cedarwood"
+    ],
+    "stock": 52,
+    "similar": [
+      {
+        "name": "Invictus",
+        "house": "Paco Rabanne"
+      },
+      {
+        "name": "Invictus Legend EDP",
+        "house": "Paco Rabanne"
+      },
+      {
+        "name": "1 Million",
+        "house": "Paco Rabanne"
+      }
     ]
   },
   {
@@ -2063,6 +3401,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "cedarwood",
       "vetiver"
+    ],
+    "stock": 15,
+    "similar": [
+      {
+        "name": "Bleu de Chanel",
+        "house": "Chanel"
+      },
+      {
+        "name": "Sauvage EDP",
+        "house": "Dior"
+      },
+      {
+        "name": "Aventus",
+        "house": "Creed"
+      }
     ]
   },
   {
@@ -2082,6 +3435,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "cedarwood",
       "leather"
+    ],
+    "stock": 11,
+    "similar": [
+      {
+        "name": "Can Can",
+        "house": "Paris Hilton"
+      },
+      {
+        "name": "Paris Hilton Men",
+        "house": "Paris Hilton"
+      },
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      }
     ]
   },
   {
@@ -2101,6 +3469,21 @@ const FRAGRANCE_DB = [
       "sandalwood",
       "cedarwood",
       "amber"
+    ],
+    "stock": 46,
+    "similar": [
+      {
+        "name": "Invictus",
+        "house": "Paco Rabanne"
+      },
+      {
+        "name": "Invictus Legend EDP",
+        "house": "Paco Rabanne"
+      },
+      {
+        "name": "Phantom",
+        "house": "Paco Rabanne"
+      }
     ]
   },
   {
@@ -2120,6 +3503,21 @@ const FRAGRANCE_DB = [
       "cedarwood",
       "amber",
       "sandalwood"
+    ],
+    "stock": 29,
+    "similar": [
+      {
+        "name": "Polo Blue",
+        "house": "Ralph Lauren"
+      },
+      {
+        "name": "Polo Red",
+        "house": "Ralph Lauren"
+      },
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      }
     ]
   },
   {
@@ -2137,6 +3535,21 @@ const FRAGRANCE_DB = [
       "cedarwood",
       "amber",
       "sandalwood"
+    ],
+    "stock": 58,
+    "similar": [
+      {
+        "name": "Polo Red",
+        "house": "Ralph Lauren"
+      },
+      {
+        "name": "Polo Ultra Blue",
+        "house": "Ralph Lauren"
+      },
+      {
+        "name": "Nautica Voyage",
+        "house": "Nautica"
+      }
     ]
   },
   {
@@ -2156,6 +3569,21 @@ const FRAGRANCE_DB = [
       "musk",
       "sandalwood",
       "cedarwood"
+    ],
+    "stock": 64,
+    "similar": [
+      {
+        "name": "Polo Blue",
+        "house": "Ralph Lauren"
+      },
+      {
+        "name": "Polo Ultra Blue",
+        "house": "Ralph Lauren"
+      },
+      {
+        "name": "1 Million",
+        "house": "Paco Rabanne"
+      }
     ]
   },
   {
@@ -2176,6 +3604,21 @@ const FRAGRANCE_DB = [
       "musk",
       "sandalwood",
       "leather"
+    ],
+    "stock": 13,
+    "similar": [
+      {
+        "name": "Club de Nuit Intense Man",
+        "house": "Armaf"
+      },
+      {
+        "name": "Aventus",
+        "house": "Creed"
+      },
+      {
+        "name": "Bleu de Chanel",
+        "house": "Chanel"
+      }
     ]
   },
   {
@@ -2196,6 +3639,21 @@ const FRAGRANCE_DB = [
       "vetiver",
       "musk",
       "sandalwood"
+    ],
+    "stock": 89,
+    "similar": [
+      {
+        "name": "Bleu de Chanel",
+        "house": "Chanel"
+      },
+      {
+        "name": "Aventus",
+        "house": "Creed"
+      },
+      {
+        "name": "Eros",
+        "house": "Versace"
+      }
     ]
   },
   {
@@ -2215,6 +3673,21 @@ const FRAGRANCE_DB = [
       "cedarwood",
       "amber",
       "sandalwood"
+    ],
+    "stock": 47,
+    "similar": [
+      {
+        "name": "Tommy For Men",
+        "house": "Tommy Hilfiger"
+      },
+      {
+        "name": "Polo Blue",
+        "house": "Ralph Lauren"
+      },
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      }
     ]
   },
   {
@@ -2236,6 +3709,21 @@ const FRAGRANCE_DB = [
       "leather",
       "patchouli",
       "musk"
+    ],
+    "stock": 76,
+    "similar": [
+      {
+        "name": "Invictus",
+        "house": "Paco Rabanne"
+      },
+      {
+        "name": "Scandal Pour Homme",
+        "house": "Jean Paul Gaultier"
+      },
+      {
+        "name": "Phantom",
+        "house": "Paco Rabanne"
+      }
     ]
   },
   {
@@ -2255,6 +3743,21 @@ const FRAGRANCE_DB = [
       "cedarwood",
       "amber",
       "tonka bean"
+    ],
+    "stock": 53,
+    "similar": [
+      {
+        "name": "212 Vip Black",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "212 Men",
+        "house": "Carolina Herrera"
+      },
+      {
+        "name": "Bad Boy",
+        "house": "Carolina Herrera"
+      }
     ]
   },
   {
@@ -2273,6 +3776,21 @@ const FRAGRANCE_DB = [
       "cedarwood",
       "amber",
       "sandalwood"
+    ],
+    "stock": 22,
+    "similar": [
+      {
+        "name": "Bvlgari Marine",
+        "house": "Bvlgari"
+      },
+      {
+        "name": "Acqua di Gio",
+        "house": "Giorgio Armani"
+      },
+      {
+        "name": "Cool Water Men",
+        "house": "Zino Davidoff"
+      }
     ]
   }
 ];

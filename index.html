@@ -694,6 +694,38 @@ html, body {
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--cream3); border-radius: 2px; }
+
+/* ── CARD SIMILAR ROW ── */
+.card-similar {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--cream3);
+}
+.card-similar-label {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink3);
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.card-similar-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.card-similar-chip {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--cream2);
+  color: var(--ink2);
+  border: 1px solid var(--cream3);
+  white-space: nowrap;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+}
 </style>
 </head>
 <body>
@@ -831,7 +863,10 @@ async function _loadInventory() {
 
 function _stockOf(code) {
   const r = _invMap[code];
-  return r ? (r.stock || 0) : null;   // null = manager never opened (no data yet)
+  if (r) return (r.stock || 0);
+  // Fall back to the static stock value baked into fragrance_db.js
+  const p = FRAGRANCE_DB.find(x => x.code === code);
+  return (p && p.stock !== undefined) ? p.stock : null;
 }
 
 function _soldOf(code) {
@@ -916,6 +951,14 @@ function renderCard(p) {
   const stockRow = stk !== null
     ? `<div class="stock-row"><span class="stock-pill ${spClass}">● ${spText}</span>${soldBit}</div>`
     : '';
+  const similars = (p.similar || []).slice(0, 3);
+  const similarRow = similars.length ? `
+    <div class="card-similar">
+      <span class="card-similar-label">también te puede gustar</span>
+      <div class="card-similar-list">
+        ${similars.map(s => `<span class="card-similar-chip">${s.name}</span>`).join('')}
+      </div>
+    </div>` : '';
   return `
   <div class="prod-card cat-${p.cat}" onclick="openModal('${p.code}')">
     <div class="prod-card-body">
@@ -931,6 +974,7 @@ function renderCard(p) {
       </div>
       <div class="cnotes">${notes}</div>
       ${stockRow}
+      ${similarRow}
     </div>
   </div>`;
 }
